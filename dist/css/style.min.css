@@ -547,7 +547,7 @@ template {
   width: 100%;
   padding: 13px 0;
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   color: #fff;
 }
 @media screen and (max-width: 992px) {
@@ -1549,6 +1549,14 @@ template {
   padding: 90px 0;
   background: #191A1E;
 }
+@media screen and (max-width: 768px) {
+  .alarm {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 500;
+    padding: 35px 0;
+  }
+}
 .alarm::after {
   content: "";
   position: absolute;
@@ -1563,9 +1571,16 @@ template {
   background-size: cover;
   opacity: 0.05;
 }
-.alarm__title {
+.alarm__title.h2 {
   max-width: 570px;
   margin-bottom: 30px;
+  position: relative;
+  z-index: 3;
+}
+@media screen and (max-width: 768px) {
+  .alarm__title.h2 {
+    text-align: center;
+  }
 }
 .alarm__text {
   font-family: "Montserrat";
@@ -1574,6 +1589,9 @@ template {
   font-size: 18px;
   line-height: 22px;
   font-weight: 500;
+}
+.alarm__text p {
+  margin-bottom: 35px;
 }
 @media screen and (max-width: 1400px) {
   .alarm__text {
@@ -1585,14 +1603,45 @@ template {
     max-width: 50%;
   }
 }
-@media screen and (max-width: 1200px) {
-  .alarm__text:first-child {
-    max-width: 50%;
-    background: red;
+@media screen and (max-width: 992px) {
+  .alarm__text {
+    max-width: 100%;
+    text-align: right;
+  }
+  .alarm__text p:first-child {
+    padding-left: 10px;
+  }
+  .alarm__text p:nth-child(2) {
+    padding-left: 11%;
+  }
+  .alarm__text p:nth-child(3) {
+    padding-left: 17%;
+  }
+  .alarm__text p:last-child {
+    padding-left: 28%;
   }
 }
-.alarm__text p {
-  margin-bottom: 35px;
+@media screen and (max-width: 768px) {
+  .alarm__text {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 500;
+  }
+  .alarm__text p {
+    margin-bottom: 10px;
+  }
+  .alarm__text p:first-child {
+    padding-left: 30%;
+  }
+  .alarm__text p:nth-child(2) {
+    padding-left: 25%;
+  }
+  .alarm__text p:nth-child(3) {
+    padding-left: 35%;
+  }
+  .alarm__text p:last-child {
+    display: none;
+  }
 }
 .alarm__brother-is-here {
   position: absolute;
@@ -1604,10 +1653,55 @@ template {
 .alarm__brother-is-here img {
   width: 100%;
 }
+@media screen and (max-width: 992px) {
+  .alarm__brother-is-here {
+    -webkit-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+    max-width: 320px;
+    left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .alarm__brother-is-here {
+    max-width: 218px;
+    left: -35px;
+    bottom: 0;
+  }
+}
 .alarm__call-layer {
   font-family: "Montserrat";
   margin-top: 30px;
   color: #fff;
+}
+@media screen and (max-width: 992px) {
+  .alarm__call-layer {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 768px) {
+  .alarm__call-layer {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 20px;
+  }
+  .alarm__call-layer .phone-number {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
 }
 .alarm__call-layer p {
   max-width: 142px;
@@ -1626,12 +1720,69 @@ template {
   padding: 85px 0;
   background: #F0F0F0;
 }
-.contacts__title {
+@media screen and (max-width: 768px) {
+  .contacts {
+    padding: 35px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contacts .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.contacts__title.h2 {
   text-align: left;
   margin-bottom: 44px;
 }
+@media screen and (max-width: 768px) {
+  .contacts__title.h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contacts__top--mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .contacts__top--mobile .items__phones {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .contacts__info {
   max-width: 280px;
+}
+@media screen and (max-width: 768px) {
+  .contacts__info {
+    max-width: 100%;
+  }
+}
+.contacts__map {
+  height: 345px;
+  width: 100%;
+  margin-left: 190px;
+}
+@media screen and (max-width: 992px) {
+  .contacts__map {
+    margin-left: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contacts__map {
+    margin-left: unset;
+  }
 }
 .contacts .items {
   padding-left: 35px;
@@ -1642,8 +1793,33 @@ template {
   font-weight: 600;
   color: #191A1E;
 }
+@media screen and (max-width: 768px) {
+  .contacts .items {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600;
+    padding-left: unset;
+    border-left: unset;
+  }
+}
 .contacts .items__address, .contacts .items__phones {
   margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .contacts .items__address a, .contacts .items__phones a {
+    margin-bottom: 8px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contacts .items__social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 10px;
+  }
 }
 .contacts .items__social a {
   margin-right: 25px;
@@ -1663,8 +1839,38 @@ template {
   font-weight: 400;
   margin-left: 42px;
 }
+@media screen and (max-width: 992px) {
+  .footer__logo img {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__logo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .footer__logo p {
+    font-size: 7px;
+    line-height: 9px;
+    font-weight: 400;
+    margin-left: unset;
+  }
+  .footer__logo img {
+    width: 95px;
+  }
+}
 .footer__social a {
   margin-left: 25px;
+}
+@media screen and (max-width: 768px) {
+  .footer__social a {
+    margin-bottom: 10px;
+  }
 }
 .footer__created-by {
   padding: 14px 0;
