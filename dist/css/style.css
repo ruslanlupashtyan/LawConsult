@@ -39,6 +39,13 @@
   display: flex;
 }
 
+.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .space-between {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -48,6 +55,15 @@
 .space-around {
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .align-center {
@@ -424,23 +440,18 @@ template {
   display: none;
 }
 @font-face {
-  font-family: "PlayFairDayBlack";
-  src: url("../fonts/PlayfairDisplaySC-Black.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: "PlayFairDayBold";
-  src: url("../fonts/PlayfairDisplaySC-Bold.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: "PlayFairDayRegular";
-  src: url("../fonts/PlayfairDisplaySC-Regular.ttf");
+  font-family: "PlayFairDisplayBold";
+  src: url("../fonts/PlayfairDisplay-Bold.ttf");
   font-weight: normal;
 }
 @font-face {
   font-family: "Montserrat";
   src: url("../fonts/MONTSERRAT-REGULAR.TTF");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "MontserratBold";
+  src: url("../fonts/MONTSERRAT-BOLD.TTF");
   font-weight: normal;
 }
 .phone-number {
@@ -475,7 +486,7 @@ template {
 .h1 {
   padding-top: 85px;
   color: #fff;
-  font-family: "PlayFairDayBold";
+  font-family: "PlayFairDisplayBold";
   text-transform: uppercase;
   font-size: 44px;
   line-height: 52px;
@@ -520,7 +531,7 @@ template {
 }
 
 .h2 {
-  font-family: "PlayFairDayBlack";
+  font-family: "PlayFairDisplayBold";
   font-size: 56px;
   line-height: 66px;
   font-weight: 700;
@@ -703,7 +714,7 @@ template {
   }
 }
 .main .foundater__title p {
-  font-family: "Montserrat";
+  font-family: "MontserratBold";
   font-style: italic;
   font-size: 22px;
   line-height: 27px;
@@ -752,7 +763,7 @@ template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: "Montserrat";
+  font-family: "PlayFairDisplayBold";
   font-size: 52px;
   line-height: 64px;
   font-weight: 700;
@@ -766,7 +777,7 @@ template {
   }
 }
 .main .advantages__item p {
-  font-family: "Montserrat";
+  font-family: "MontserratBold";
   font-size: 16px;
   line-height: 19px;
   font-weight: 700;
@@ -796,7 +807,7 @@ template {
 }
 .main__buttons a {
   margin-right: 20px;
-  font-family: "PlayFairDayRegular";
+  font-family: "PlayFairDisplayBold";
   font-size: 18px;
   line-height: 21px;
   font-weight: 700;
@@ -886,6 +897,9 @@ template {
   margin-bottom: 25px;
 }
 .main .main-news__btn a {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
   margin-right: 6px;
 }
 @media screen and (max-width: 768px) {
@@ -941,9 +955,9 @@ template {
   }
 }
 .about-us__item {
-  max-width: 285px;
+  max-width: 275px;
   width: 100%;
-  padding: 20px 17px 15px;
+  padding: 20px 10px 15px;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -992,10 +1006,11 @@ template {
   }
 }
 .about-us__name {
+  font-family: "MontserratBold";
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 576px) {
   .about-us__name {
@@ -1024,7 +1039,13 @@ template {
   }
 }
 .about-us__image img {
-  width: 100%;
+  height: 210px;
+}
+@media screen and (max-width: 1200px) {
+  .about-us__image img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .services {
@@ -1076,7 +1097,7 @@ template {
 }
 .services__change-button {
   padding: 15px 20px;
-  font-family: "PlayFairDayRegular";
+  font-family: "PlayFairDisplayBold";
   font-size: 18px;
   line-height: 21px;
   font-weight: 700;
@@ -1103,6 +1124,15 @@ template {
 }
 .services__items {
   margin-top: 40px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+  .services__items {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 @media screen and (max-width: 768px) {
   .services__items {
@@ -1137,9 +1167,16 @@ template {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-family: "Montserrat";
+  -webkit-transition: ease-in-out 300ms;
+  -o-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
 }
 .services__item.detail {
+  -webkit-transition: ease-in-out 300ms;
+  -o-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
   max-width: 100%;
+  height: 100%;
 }
 .services__item.detail .services__text {
   display: block;
@@ -1451,6 +1488,7 @@ template {
   background: linear-gradient(#2E3643, #242C3A);
 }
 .payments__head {
+  font-family: "MontserratBold";
   font-size: 29px;
   line-height: 36px;
   font-weight: 700;
@@ -1501,6 +1539,7 @@ template {
   opacity: 0.05;
 }
 .news .container {
+  padding: unset;
   position: relative;
   z-index: 2;
 }
@@ -1513,10 +1552,9 @@ template {
   z-index: 2;
 }
 .news .slider__wrapper {
-  padding: 70px 0;
+  padding: 80px 0;
   margin: 0 10px;
   position: relative;
-  font-family: "Montserrat";
   overflow: hidden;
   color: #fff;
 }
@@ -1535,24 +1573,32 @@ template {
   background-repeat: no-repeat;
   background-size: cover;
   width: 590px;
-  height: 324px;
-  padding: 30px 20px;
+  height: 290px;
+  padding: 25px 20px;
 }
 .news .slider__title {
+  font-family: "MontserratBold";
   font-size: 23px;
-  line-height: 38px;
+  line-height: 28px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .news .slider__text {
+  font-family: "Montserrat";
   font-size: 11px;
   line-height: 13px;
   font-weight: 500;
   height: 130px;
   overflow: hidden;
 }
+.news .slider__button {
+  font-family: "Montserrat";
+}
 .news .slider__button p {
   margin-right: 10px;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
 }
 .news .slider .current {
   position: relative;
@@ -1560,13 +1606,15 @@ template {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+  -webkit-filter: drop-shadow(0px 0px 25px #00000033);
+          filter: drop-shadow(0px 0px 25px #00000033);
   -webkit-transition: ease-in-out 500ms;
   -o-transition: ease-in-out 500ms;
   transition: ease-in-out 500ms;
 }
 .news__all-news a {
   margin: 0 auto;
-  font-family: "PlayFairDayRegular";
+  font-family: "PlayFairDisplayBold";
   padding: 15px 20px;
   font-size: 18px;
   line-height: 21px;
@@ -1867,6 +1915,14 @@ template {
   font-family: "Montserrat";
   background: #F0F0F0;
 }
+@media screen and (max-width: 768px) {
+  .footer .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .footer__logo {
   padding: 30px 0 25px;
 }
@@ -1883,26 +1939,16 @@ template {
   }
 }
 @media screen and (max-width: 768px) {
-  .footer__logo {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
   .footer__logo p {
     font-size: 7px;
     line-height: 9px;
     font-weight: 400;
-    margin-left: unset;
   }
   .footer__logo img {
     width: 95px;
   }
 }
-.footer__social a {
+.footer__social a:not(:first-child) {
   margin-left: 25px;
 }
 @media screen and (max-width: 768px) {
@@ -1917,15 +1963,26 @@ template {
   line-height: 12px;
   font-weight: 400;
 }
+@media screen and (max-width: 768px) {
+  .footer__created-by {
+    text-align: center;
+  }
+}
 
 .all-news {
   font-family: "Montserrat";
   background: #191A1E;
   color: #fff;
   padding-top: 192px;
+  padding-bottom: 85px;
+}
+@media screen and (max-width: 768px) {
+  .all-news {
+    padding-bottom: 35px;
+  }
 }
 .all-news__wrapper {
-  padding: 40px 0;
+  padding: 40px 0 20px;
 }
 @media screen and (max-width: 768px) {
   .all-news__wrapper {
@@ -1956,6 +2013,12 @@ template {
 .all-news__items:nth-of-type(3n-2) {
   margin-left: 0;
 }
+@media screen and (max-width: 768px) {
+  .all-news__items--wrap-mobile {
+    padding: 20px 0;
+    border-top: 1px solid #fff;
+  }
+}
 @media screen and (max-width: 1400px) {
   .all-news__items {
     max-width: 370px;
@@ -1979,7 +2042,7 @@ template {
     max-width: 100%;
   }
   .all-news__items:nth-of-type(1n) {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
   }
 }
 .all-news .item {
@@ -1994,10 +2057,27 @@ template {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  .all-news .item {
+    height: 200px;
+  }
+}
 .all-news .item__title {
   font-size: 29px;
   line-height: 36px;
   font-weight: 700;
+}
+@media screen and (max-width: 992px) {
+  .all-news .item__title {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+}
+@media screen and (max-width: 768px) {
+  .all-news .item__title {
+    display: none;
+  }
 }
 .all-news .item__btn {
   display: -webkit-box;
@@ -2007,6 +2087,175 @@ template {
 .all-news .item__btn p {
   margin-right: 8px;
 }
+@media screen and (max-width: 768px) {
+  .all-news .item__btn {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .all-news .item__date {
+    display: none;
+  }
+}
+.all-news .item__title--mobile {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .all-news .item__title--mobile {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+.all-news .item__date--mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .all-news .item__date--mobile {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    display: block;
+  }
+}
+.all-news__more p {
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  font-family: "PlayFairDisplayBold";
+  background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#4B91FF));
+  background: -o-linear-gradient(right, #2671E7, #4B91FF);
+  background: linear-gradient(270deg, #2671E7, #4B91FF);
+  text-transform: uppercase;
+  color: #fff;
+  padding: 15px 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .all-news__more p {
+    padding: 14px 12px;
+  }
+}
+.all-news__social a {
+  margin: 0 20px;
+}
 .all-news .all-news__title {
   text-align: center;
+}
+
+.new__top-bg {
+  position: relative;
+  background-image: url(../images/news_bg/office-president.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 430px;
+}
+@media screen and (max-width: 768px) {
+  .new__top-bg {
+    height: 230px;
+  }
+}
+.new__social {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  bottom: 90px;
+  right: 120px;
+}
+@media screen and (max-width: 768px) {
+  .new__social {
+    display: none;
+  }
+}
+.new__social a {
+  margin-bottom: 20px;
+}
+.new .item {
+  padding: 40px 0;
+  font-family: "MontserratBold";
+}
+@media screen and (max-width: 768px) {
+  .new .item {
+    padding: 30px 0;
+  }
+}
+.new .item__title {
+  font-size: 64px;
+  line-height: 78px;
+  font-weight: 700;
+  color: #191A1E;
+}
+@media screen and (max-width: 768px) {
+  .new .item__title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+}
+.new .item__date {
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #191A1E;
+}
+@media screen and (max-width: 768px) {
+  .new .item__date {
+    font-size: 10px;
+    line-height: 13px;
+    font-weight: 500;
+  }
+}
+.new .item__image {
+  margin: 30px 0 40px;
+  height: 470px;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .new .item__image {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 20px 0;
+  }
+}
+.new .item__image img {
+  width: 100%;
+}
+.new .item__subtitle {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .new .item__subtitle {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+}
+.new .item__text {
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  .new .item__text {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+  }
 }

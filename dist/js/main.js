@@ -42,20 +42,23 @@ if (document.getElementsByClassName('services').length) {
     }
   })
 }
-
-
-function initMap() {
-  var options = {
-  zoom: 15,
-  center: { lat: 48.29395550421818, lng: 25.936907913631526}, 
+let gmap = document.querySelector('#map');
+console.log(gmap);
+if(typeof gmap !== undefined || typeof gmap !== null) {
+  function initMap() {
+    var options = {
+    zoom: 15,
+    center: { lat: 48.29395550421818, lng: 25.936907913631526}, 
+    }
+    var map = new google.maps.Map(document.getElementById("map"), options);
+    new google.maps.Marker({
+      position: { lat: 48.29395550421818, lng: 25.936907913631526},
+      map,
+      title: "Maryan Ivan",
+    });
   }
-  var map = new google.maps.Map(document.getElementById("map"), options);
-  new google.maps.Marker({
-    position: { lat: 48.29395550421818, lng: 25.936907913631526},
-    map,
-    title: "Maryan Ivan",
-  });
 }
+
 
 $(function(){
   $(".slider__wrapper").slick({
@@ -77,26 +80,25 @@ $(function(){
     ]
   });
 
-  // window.addEventListener('resize', function(){
-    // if (window.screen > 992) {
-      if(document.querySelectorAll('.slick-active').length) {
-        let activeSlides = document.querySelectorAll('.slick-active');
-        activeSlides[1].classList.add('current');
-        $('.slider-button.next').on('click', function(){
-          let active = document.querySelectorAll('.slick-active');
-          active[1].classList.add('current');
-          active[0].classList.remove('current');
-          active[2].classList.remove('current');
-        });
-        $('.slider-button.prev').on('click', function(){
-          let active = document.querySelectorAll('.slick-active');
-          active[1].classList.add('current');
-          active[0].classList.remove('current');
-          active[2].classList.remove('current');
-        });
-      }
-    // }
-  // })
+  // let slider = document.querySelector('.slider');
+  let activeSlides = document.querySelectorAll('.slick-active');
+
+  // if (typeof slider !== 'undefined' && typeof slider !== null) {
+  if (typeof activeSlides[0] !== 'undefined' && typeof activeSlides[0] !== null) {
+    activeSlides[1].classList.add('current');
+    $('.slider-button.next').on('click', function(){
+      let active = document.querySelectorAll('.slick-active');
+      active[1].classList.add('current');
+      active[0].classList.remove('current');
+      active[2].classList.remove('current');
+    });
+    $('.slider-button.prev').on('click', function(){
+      let active = document.querySelectorAll('.slick-active');
+      active[1].classList.add('current');
+      active[0].classList.remove('current');
+      active[2].classList.remove('current');
+    });
+  }
 })
 
 servicesItem = document.querySelectorAll('.services__item');
