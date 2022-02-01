@@ -1138,6 +1138,17 @@ template {
           justify-content: space-between;
   font-family: "Montserrat";
 }
+.services__item.detail {
+  max-width: 100%;
+}
+.services__item.detail .services__text {
+  display: block;
+}
+.services__item.detail .services__button .icon {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
 @media screen and (max-width: 992px) {
   .services__item {
     max-width: 300px;
@@ -1493,10 +1504,21 @@ template {
   position: relative;
   z-index: 2;
 }
+.news .slider .slick-list {
+  overflow: visible;
+}
+.news .slider .slider-button {
+  border: none;
+  background-color: transparent;
+  z-index: 2;
+}
 .news .slider__wrapper {
+  padding: 70px 0;
+  margin: 0 10px;
+  position: relative;
   font-family: "Montserrat";
+  overflow: hidden;
   color: #fff;
-  padding: 35px 0;
 }
 .news .slider__item {
   display: -webkit-box;
@@ -1513,22 +1535,34 @@ template {
   background-repeat: no-repeat;
   background-size: cover;
   width: 590px;
-  height: 405px;
+  height: 324px;
   padding: 30px 20px;
 }
 .news .slider__title {
-  font-size: 29px;
-  line-height: 36px;
+  font-size: 23px;
+  line-height: 38px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 .news .slider__text {
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 11px;
+  line-height: 13px;
   font-weight: 500;
+  height: 130px;
+  overflow: hidden;
 }
 .news .slider__button p {
   margin-right: 10px;
+}
+.news .slider .current {
+  position: relative;
+  z-index: 100;
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: ease-in-out 500ms;
+  -o-transition: ease-in-out 500ms;
+  transition: ease-in-out 500ms;
 }
 .news__all-news a {
   margin: 0 auto;
@@ -1807,8 +1841,12 @@ template {
 }
 @media screen and (max-width: 768px) {
   .contacts .items__address a, .contacts .items__phones a {
+    display: block;
     margin-bottom: 8px;
   }
+}
+.contacts .items__address a, .contacts .items__phones a {
+  display: block;
 }
 @media screen and (max-width: 768px) {
   .contacts .items__social {
@@ -1881,8 +1919,93 @@ template {
 }
 
 .all-news {
+  font-family: "Montserrat";
   background: #191A1E;
+  color: #fff;
   padding-top: 192px;
+}
+.all-news__wrapper {
+  padding: 40px 0;
+}
+@media screen and (max-width: 768px) {
+  .all-news__wrapper {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.all-news__items {
+  background: url(../images/news_bg/government.webp);
+  background-size: cover;
+  width: 100%;
+  max-width: 386px;
+  height: 305px;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.all-news__items:nth-of-type(3n) {
+  margin-right: 0;
+}
+.all-news__items:nth-of-type(3n-2) {
+  margin-left: 0;
+}
+@media screen and (max-width: 1400px) {
+  .all-news__items {
+    max-width: 370px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .all-news__items {
+    max-width: 290px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .all-news__items:nth-of-type(2n) {
+    margin: 0 0 20px 10px;
+  }
+  .all-news__items:nth-of-type(2n-1) {
+    margin: 0 10px 20px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .all-news__items {
+    max-width: 100%;
+  }
+  .all-news__items:nth-of-type(1n) {
+    margin: 0 0 20px 0;
+  }
+}
+.all-news .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.all-news .item__title {
+  font-size: 29px;
+  line-height: 36px;
+  font-weight: 700;
+}
+.all-news .item__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.all-news .item__btn p {
+  margin-right: 8px;
 }
 .all-news .all-news__title {
   text-align: center;

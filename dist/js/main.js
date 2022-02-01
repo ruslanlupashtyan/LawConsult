@@ -1,7 +1,3 @@
-// import "flickity/dist/flickity.pkgd";
-// import "flickity";
-// import { Loader } from "@googlemaps/js-api-loader";
-
 // change bg in header
 let header = document.querySelector('.header');
 window.addEventListener('scroll', function(){
@@ -16,7 +12,6 @@ window.addEventListener('scroll', function(){
 // hamburger
 let hamburger = document.querySelector('.header__burger');
 let mobileMenu = document.querySelector('.header__nav_mobile');
-
 hamburger.addEventListener('click', function(){
   mobileMenu.classList.toggle('hidden');
   header.classList.toggle('darker')
@@ -62,27 +57,58 @@ function initMap() {
   });
 }
 
-// (function () {
-//   const flkty = new Flickity ('flickity');
-//   // const utils = require('fizzy-ui-utils');
-//   // var matchesSelector = require('matches-selector');
+$(function(){
+  $(".slider__wrapper").slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    draggable: false,
+    prevArrow: $('.slider-button.prev'),
+    nextArrow: $('.slider-button.next'),
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        }
+      }
 
-//   const slider = document.querySelector('.slider__wrapper');
-//   const flktySlider = new flkty(slider, {
-//     pageDots: false,
-//     prevNextButtons: false,
-//   });
+    ]
+  });
 
-//   // var buttonGroup = document.querySelector('.gallery-buttons');
-//   // var buttons = buttonGroup.querySelectorAll('.gallery-buttons__button');
-//   // buttons = utils.makeArray(buttons);
+  // window.addEventListener('resize', function(){
+    // if (window.screen > 992) {
+      if(document.querySelectorAll('.slick-active').length) {
+        let activeSlides = document.querySelectorAll('.slick-active');
+        activeSlides[1].classList.add('current');
+        $('.slider-button.next').on('click', function(){
+          let active = document.querySelectorAll('.slick-active');
+          active[1].classList.add('current');
+          active[0].classList.remove('current');
+          active[2].classList.remove('current');
+        });
+        $('.slider-button.prev').on('click', function(){
+          let active = document.querySelectorAll('.slick-active');
+          active[1].classList.add('current');
+          active[0].classList.remove('current');
+          active[2].classList.remove('current');
+        });
+      }
+    // }
+  // })
+})
 
-//   // buttonGroup.addEventListener('click', function (event) {
-//   //   // filter for button clicks
-//   //   if (!matchesSelector(event.target, '.gallery-buttons__button')) {
-//   //     return;
-//   //   }
-//   //   var index = buttons.indexOf(event.target);
-//   //   flktySlider.select(index);
-//   // });
-// })();
+servicesItem = document.querySelectorAll('.services__item');
+
+servicesItem.forEach(element => {
+  element.addEventListener('click', function(){
+    this.classList.toggle('detail');
+    servicesButton = this.querySelector('.btn');
+    if(element.classList.contains('detail')) {
+      servicesButton.innerHTML = 'Стисло'
+    } else {
+      servicesButton.innerHTML = 'Детальніше'
+    }
+  })
+});
