@@ -2084,8 +2084,11 @@ template {
   display: -ms-flexbox;
   display: flex;
 }
-.all-news .item__btn p {
+.all-news .item__btn a {
   margin-right: 8px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
 }
 @media screen and (max-width: 768px) {
   .all-news .item__btn {
