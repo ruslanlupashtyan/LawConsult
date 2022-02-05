@@ -100,17 +100,119 @@ $(function(){
     });
   }
 })
+let images = [
+  {
+    url: '../images/services/0101.webp'
+  },
+  {
+    url: '../images/services/0102.webp'
+  },
+  {
+    url: '../images/services/0103.webp'
+  },
+  {
+    url: '../images/services/0104.webp'
+  },
+  {
+    url: '../images/services/0105.webp'
+  },
+  {
+    url: '../images/services/0106.webp'
+  },
+  {
+    url: '../images/services/0107.webp'
+  },
+  {
+    url: '../images/services/0108.webp'
+  },
+  {
+    url: '../images/services/0109.webp'
+  },
+  {
+    url: '../images/services/0110.webp'
+  },
+  {
+    url: '../images/services/0111.webp'
+  },
+  {
+    url: '../images/services/0112.webp'
+  },
+  {
+    url: '../images/services/0201.webp'
+  },
+  {
+    url: '../images/services/0202.webp'
+  },
+  {
+    url: '../images/services/0203.webp'
+  },
+  {
+    url: '../images/services/0204.webp'
+  },
+  {
+    url: '../images/services/0205.webp'
+  },
+  {
+    url: '../images/services/0206.webp'
+  },
+  {
+    url: '../images/services/0207.webp'
+  },
+  {
+    url: '../images/services/0208.webp'
+  },
+  {
+    url: '../images/services/0209.webp'
+  },
+]
+console.log(images);
 
 servicesItem = document.querySelectorAll('.services__item');
+console.log(servicesItem[0]);
 
-servicesItem.forEach(element => {
-  element.addEventListener('click', function(){
-    this.classList.toggle('detail');
-    servicesButton = this.querySelector('.btn');
-    if(element.classList.contains('detail')) {
-      servicesButton.innerHTML = 'Стисло'
-    } else {
-      servicesButton.innerHTML = 'Детальніше'
-    }
+for(let i = 0; i < servicesItem.length; i++) {
+  servicesItem[i].addEventListener('click', function(){
+    // open modal
+    let modal = document.querySelector('.drop-modal');
+    let body = document.querySelector('body');
+    body.classList.add('overflow-hidden')
+    modal.classList.add('show');
+
+    console.log(this.getAttribute('style'));
+
+    // get modal inmodalation
+    let nodeTitle = this.querySelector('.services__title');
+    let nodeText = this.querySelector('.services__text');
+    let nodeBg = this.getAttribute('style');
+
+    // create items
+    let modalInner = document.createElement('div');
+    let modalTitle = document.createElement('div');
+    let modalText = document.createElement('div');
+
+    
+    modal.setAttribute('style', nodeBg);
+    modalInner.prepend(modalText);
+    modalInner.prepend(modalTitle);
+    modalInner.setAttribute('class', 'modal-inner container');
+    modalTitle.setAttribute('class', 'modal__title');
+    modalText.setAttribute('class', 'modal__text');
+
+    modalTitle.innerHTML = nodeTitle.innerHTML;
+    modalText.innerHTML = nodeText.innerHTML;
+
+    modal.prepend(modalInner);
+
+
+    // close modal
+    let buttonClose = document.querySelector('button.close');
+    buttonClose.addEventListener('click', function(){
+      modal.classList.remove('show');
+      body.classList.remove('overflow-hidden')
+
+      setTimeout(()=>{
+        modalInner.remove();
+      }, 1000)
+    })
   })
-});
+}
