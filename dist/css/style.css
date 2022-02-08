@@ -454,6 +454,10 @@ template {
   src: url("../fonts/MONTSERRAT-BOLD.TTF");
   font-weight: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body.overflow-hidden {
   overflow: hidden;
 }
@@ -2172,7 +2176,7 @@ body.overflow-hidden {
     line-height: 9px;
     font-weight: 400;
   }
-  .footer__logo img {
+  .footer__logo svg {
     width: 95px;
   }
 }
