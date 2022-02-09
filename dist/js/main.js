@@ -181,8 +181,9 @@ if (document.getElementsByClassName('services').length) {
             button.querySelector('.btn').innerText = 'Детальніше'
             this.classList.remove('show');
           } else {
+
             this.classList.add('show');
-            button.querySelector('.btn').innerText = 'Стисло'
+            button.querySelector('.btn').innerText = 'Стисло';
           }
 
         }

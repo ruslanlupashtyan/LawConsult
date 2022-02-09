@@ -773,7 +773,7 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 768px) {
   .main .advantages__item {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
 .main .advantages__item .number-mobile {
@@ -1195,16 +1195,7 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 768px) {
   .services__item {
-    max-width: calc(50% - 5px);
-    height: 146px;
-    margin-bottom: 10px;
-    background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
-    background: -o-linear-gradient(right, #2671E7, #3984fd);
-    background: linear-gradient(270deg, #2671E7, #3984fd);
-  }
-}
-@media screen and (max-width: 768px) {
-  .services__item {
+    background: var(--background);
     padding: 20px 15px 10px;
     max-width: 100%;
     height: 147px;
@@ -1235,6 +1226,15 @@ body.overflow-hidden {
   -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
 }
+@media screen and (max-width: 768px) {
+  .services__item::after {
+    background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
+    background: -o-linear-gradient(right, #2671E7, #3984fd);
+    background: linear-gradient(270deg, #2671E7, #3984fd);
+    margin-right: unset;
+    opacity: 0.9;
+  }
+}
 .services__item:hover {
   position: relative;
   z-index: 2;
@@ -1250,6 +1250,11 @@ body.overflow-hidden {
 }
 .services__item:hover .services__button svg path {
   fill: #2671E7;
+}
+@media screen and (max-width: 768px) {
+  .services__item:hover {
+    z-index: 0;
+  }
 }
 .services__item.show {
   height: -webkit-fit-content;
@@ -1332,7 +1337,7 @@ body.overflow-hidden {
   background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
   background: -o-linear-gradient(right, #2671E7, #3984fd);
   background: linear-gradient(270deg, #2671E7, #3984fd);
-  padding: 6px 14px;
+  padding: 5px 12px 5px 13px;
 }
 @media screen and (max-width: 768px) {
   .services__button .icon {
@@ -1711,6 +1716,9 @@ body.overflow-hidden {
     line-height: 15px;
     font-weight: 700;
   }
+}
+.payments__image {
+  margin-bottom: -4px;
 }
 .payments__image img {
   width: 100%;
@@ -2214,6 +2222,7 @@ body.overflow-hidden {
 @media screen and (max-width: 768px) {
   .all-news {
     padding-bottom: 35px;
+    padding-top: 95px;
   }
 }
 .all-news__wrapper {
@@ -2420,6 +2429,7 @@ body.overflow-hidden {
   margin-bottom: 20px;
 }
 .new .item {
+  background: #f0f0f0;
   padding: 40px 0;
   font-family: "MontserratBold";
 }
@@ -2432,6 +2442,7 @@ body.overflow-hidden {
   font-size: 64px;
   line-height: 78px;
   font-weight: 700;
+  margin-bottom: 10px;
   color: #191A1E;
 }
 @media screen and (max-width: 768px) {
