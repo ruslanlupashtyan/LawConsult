@@ -1834,6 +1834,11 @@ body.overflow-hidden {
     height: 350px;
   }
 }
+@media screen and (max-width: 992px) {
+  .news .slider__image img {
+    width: 100%;
+  }
+}
 .news .slider__inner {
   position: absolute;
   padding: 20px;
@@ -1848,6 +1853,11 @@ body.overflow-hidden {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+  .news .slider__inner {
+    padding: 20px 20px 40px;
+  }
 }
 @media screen and (max-width: 768px) {
   .news .slider__inner {
