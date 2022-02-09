@@ -946,6 +946,7 @@ body.overflow-hidden {
 .about-us__items {
   border-radius: 10px;
   margin-top: 30px;
+  text-align: center;
 }
 @media screen and (max-width: 992px) {
   .about-us__items {
@@ -959,6 +960,11 @@ body.overflow-hidden {
         align-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-us__items {
+    text-align: left;
   }
 }
 .about-us__item {
@@ -999,7 +1005,7 @@ body.overflow-hidden {
   .about-us__item {
     max-width: 100%;
     padding: 20px;
-    margin: 10px 25%;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 405px) {
@@ -1013,7 +1019,6 @@ body.overflow-hidden {
   line-height: 24px;
   font-weight: 700;
   margin-bottom: 10px;
-  text-transform: uppercase;
 }
 @media screen and (max-width: 576px) {
   .about-us__name {
@@ -1338,6 +1343,9 @@ body.overflow-hidden {
   background: -o-linear-gradient(right, #2671E7, #3984fd);
   background: linear-gradient(270deg, #2671E7, #3984fd);
   padding: 5px 12px 5px 13px;
+}
+.services__button .icon svg path {
+  fill: #fff;
 }
 @media screen and (max-width: 768px) {
   .services__button .icon {
@@ -1797,6 +1805,7 @@ body.overflow-hidden {
   color: #fff;
 }
 .news .slider__item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1812,7 +1821,27 @@ body.overflow-hidden {
   background-size: cover;
   width: 590px;
   height: 290px;
-  padding: 25px 20px;
+  overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  .news .slider__item {
+    height: 350px;
+  }
+}
+.news .slider__inner {
+  position: absolute;
+  padding: 20px;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .news .slider__title {
   font-family: "MontserratBold";
@@ -2246,7 +2275,7 @@ body.overflow-hidden {
   background-size: cover;
   width: 100%;
   max-width: 386px;
-  height: 305px;
+  height: 250px;
   margin: 0 10px;
   margin-bottom: 20px;
   padding: 20px;
@@ -2307,6 +2336,7 @@ body.overflow-hidden {
   }
 }
 .all-news .item__title {
+  font-family: "MontserratBold";
   font-size: 29px;
   line-height: 36px;
   font-weight: 700;
@@ -2338,6 +2368,11 @@ body.overflow-hidden {
   .all-news .item__btn {
     display: none;
   }
+}
+.all-news .item__date {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
 }
 @media screen and (max-width: 768px) {
   .all-news .item__date {
