@@ -1832,12 +1832,11 @@ body.overflow-hidden {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-image: var(--background);
+  background-image: var(--background-img);
   background-repeat: no-repeat;
   background-size: cover;
   width: 590px;
   height: 290px;
-  overflow: hidden;
 }
 @media screen and (max-width: 1200px) {
   .news .slider__item {
@@ -1887,7 +1886,6 @@ body.overflow-hidden {
   line-height: 13px;
   font-weight: 500;
   height: 130px;
-  overflow: hidden;
 }
 .news .slider__button {
   font-family: "Montserrat";
