@@ -174,8 +174,6 @@ if (document.getElementsByClassName('services').length) {
           })
         }
 
-      let button = document.querySelectorAll('.services__button');
-      console.log(button)
       if(screenWidth < 992) {
         let showItem = document.querySelector('.show');
         if(!this.classList.contains('show')) {
@@ -184,7 +182,6 @@ if (document.getElementsByClassName('services').length) {
           }
           this.classList.add('show');
         } else {
-          console.log(showItem);
           this.classList.remove('show');
         }
       }
