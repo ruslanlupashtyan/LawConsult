@@ -1743,6 +1743,11 @@ body.overflow-hidden {
   padding: 85px 0;
   background: #F0F0F0;
 }
+@media screen and (max-width: 768px) {
+  .news {
+    padding: 35px 0;
+  }
+}
 .news::after {
   content: "";
   position: absolute;
@@ -1809,6 +1814,11 @@ body.overflow-hidden {
   position: relative;
   overflow: hidden;
   color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .news .slider__wrapper {
+    padding: 20px 0;
+  }
 }
 .news .slider__item {
   position: relative;
@@ -2092,7 +2102,7 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 768px) {
   .contacts {
-    padding: 35px 0;
+    padding: 10px 0 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -2218,6 +2228,11 @@ body.overflow-hidden {
 }
 .footer__logo {
   padding: 30px 0 25px;
+}
+@media screen and (max-width: 768px) {
+  .footer__logo {
+    padding: 15px 0;
+  }
 }
 .footer__logo p {
   width: 165px;
