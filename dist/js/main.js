@@ -132,62 +132,62 @@ if (document.getElementsByClassName('services').length) {
     for(let i = 0; i < servicesItem.length; i++) {
       servicesItem[i].addEventListener('click', function(){
         if (screenWidth >= 992) {
-        // open modal
-        let modal = document.querySelector('.drop-modal');
-        let body = document.querySelector('body');
-        body.classList.add('overflow-hidden')
-        modal.classList.add('show');
-    
-        console.log(this.getAttribute('style'));
-    
-        // get modal inmodalation
-        let nodeTitle = this.querySelector('.services__title');
-        let nodeText = this.querySelector('.services__text');
-        let nodeBg = this.getAttribute('style');
-    
-        // create items
-        let modalInner = document.createElement('div');
-        let modalTitle = document.createElement('div');
-        let modalText = document.createElement('div');
-    
-        
-        modal.setAttribute('style', nodeBg);
-        modalInner.prepend(modalText);
-        modalInner.prepend(modalTitle);
-        modalInner.setAttribute('class', 'modal-inner container');
-        modalTitle.setAttribute('class', 'modal__title');
-        modalText.setAttribute('class', 'modal__text');
-    
-        modalTitle.innerHTML = nodeTitle.innerHTML;
-        modalText.innerHTML = nodeText.innerHTML;
-    
-        modal.prepend(modalInner);
-    
-    
-        // close modal
-        let buttonClose = document.querySelector('button.close');
-        buttonClose.addEventListener('click', function(){
-          modal.classList.remove('show');
-          body.classList.remove('overflow-hidden')
-    
-          setTimeout(()=>{
-            modalInner.remove();
-          }, 1000)
-        })
-        }
-        if(screenWidth < 992) {
-          let button = this.querySelector('.services__button')
-          if(this.classList.contains('show')) {
-            button.querySelector('.btn').innerText = 'Детальніше'
-            this.classList.remove('show');
-          } else {
+          // open modal
+          let modal = document.querySelector('.drop-modal');
+          let body = document.querySelector('body');
+          body.classList.add('overflow-hidden')
+          modal.classList.add('show');
+      
+          console.log(this.getAttribute('style'));
+      
+          // get modal inmodalation
+          let nodeTitle = this.querySelector('.services__title');
+          let nodeText = this.querySelector('.services__text');
+          let nodeBg = this.getAttribute('style');
+      
+          // create items
+          let modalInner = document.createElement('div');
+          let modalTitle = document.createElement('div');
+          let modalText = document.createElement('div');
 
-            this.classList.add('show');
-            button.querySelector('.btn').innerText = 'Стисло';
+          modal.setAttribute('style', nodeBg);
+          modalInner.prepend(modalText);
+          modalInner.prepend(modalTitle);
+          modalInner.setAttribute('class', 'modal-inner container');
+          modalTitle.setAttribute('class', 'modal__title');
+          modalText.setAttribute('class', 'modal__text');
+
+          modalTitle.innerHTML = nodeTitle.innerHTML;
+          modalText.innerHTML = nodeText.innerHTML;
+
+          modal.prepend(modalInner);
+
+
+          // close modal
+          let buttonClose = document.querySelector('button.close');
+          buttonClose.addEventListener('click', function(){
+            modal.classList.remove('show');
+            body.classList.remove('overflow-hidden')
+            setTimeout(()=>{
+              modalInner.remove();
+            }, 1000)
+          })
+        }
+
+      let button = document.querySelectorAll('.services__button');
+      console.log(button)
+      if(screenWidth < 992) {
+        let showItem = document.querySelector('.show');
+        if(!this.classList.contains('show')) {
+          if(showItem) {
+            showItem.classList.remove('show');
           }
-
+          this.classList.add('show');
+        } else {
+          console.log(showItem);
+          this.classList.remove('show');
         }
+      }
     })
   }
-
 })

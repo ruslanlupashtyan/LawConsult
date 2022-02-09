@@ -1240,25 +1240,22 @@ body.overflow-hidden {
     opacity: 0.9;
   }
 }
-.services__item:hover {
-  position: relative;
-  z-index: 2;
-  background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
-  background: -o-linear-gradient(right, #2671E7, #3984fd);
-  background: linear-gradient(270deg, #2671E7, #3984fd);
-}
-.services__item:hover .services__button .icon {
-  background: #fff;
-}
-.services__item:hover .services__button p {
-  visibility: visible;
-}
-.services__item:hover .services__button svg path {
-  fill: #2671E7;
-}
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .services__item:hover {
-    z-index: 0;
+    position: relative;
+    z-index: 2;
+    background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
+    background: -o-linear-gradient(right, #2671E7, #3984fd);
+    background: linear-gradient(270deg, #2671E7, #3984fd);
+  }
+  .services__item:hover .services__button .icon {
+    background: #fff;
+  }
+  .services__item:hover .services__button p {
+    visibility: visible;
+  }
+  .services__item:hover .services__button svg path {
+    fill: #2671E7;
   }
 }
 .services__item.show {
@@ -1282,6 +1279,12 @@ body.overflow-hidden {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+.services__item.show .btn-less {
+  display: block;
+}
+.services__item.show .btn-more {
+  display: none;
 }
 .services__title {
   position: relative;
@@ -1354,6 +1357,9 @@ body.overflow-hidden {
   .services__button .icon svg path {
     fill: #2671E7;
   }
+}
+.services__button .btn-less {
+  display: none;
 }
 .services__button p {
   visibility: hidden;
@@ -1842,6 +1848,11 @@ body.overflow-hidden {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .news .slider__inner {
+    padding-bottom: 40px;
+  }
 }
 .news .slider__title {
   font-family: "MontserratBold";
