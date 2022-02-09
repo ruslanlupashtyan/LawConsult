@@ -454,6 +454,11 @@ template {
   src: url("../fonts/MONTSERRAT-BOLD.TTF");
   font-weight: normal;
 }
+@font-face {
+  font-family: "MontserratExtraBold";
+  src: url("../fonts/MONTSERRAT-EXTRABOLD.TTF");
+  font-weight: normal;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -771,21 +776,15 @@ body.overflow-hidden {
     margin-top: 10px;
   }
 }
-.main .advantages__item h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-family: "PlayFairDisplayBold";
-  font-size: 52px;
-  line-height: 64px;
-  font-weight: 700;
-  color: #2671E7;
+.main .advantages__item .number-mobile {
+  display: none;
 }
 @media screen and (max-width: 768px) {
-  .main .advantages__item h3 {
-    font-size: 25px;
-    line-height: 30px;
-    font-weight: 700;
+  .main .advantages__item .number-desktop {
+    display: none;
+  }
+  .main .advantages__item .number-mobile {
+    display: block;
   }
 }
 .main .advantages__item p {
@@ -859,14 +858,9 @@ body.overflow-hidden {
 .main__buttons a.btn-primary:hover {
   background: transparent;
 }
-.main__buttons a.btn-secondary {
-  -webkit-transition: ease-in-out 3000ms;
-  -o-transition: ease-in-out 3000ms;
-  transition: ease-in-out 3000ms;
-}
 @media screen and (max-width: 768px) {
   .main__buttons a.btn-secondary {
-    width: 130px;
+    width: 140px;
     padding: 12px 14px;
   }
 }
@@ -985,7 +979,6 @@ body.overflow-hidden {
   background: #fff;
   color: #2671E7;
   font-family: "Montserrat";
-  text-align: center;
 }
 @media screen and (max-width: 1300px) {
   .about-us__item {
@@ -1004,32 +997,29 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 576px) {
   .about-us__item {
-    max-width: 210px;
-    padding: 10px;
-  }
-}
-@media screen and (max-width: 535px) {
-  .about-us__item {
-    max-width: 147px;
+    max-width: 100%;
+    padding: 20px;
+    margin: 10px 25%;
   }
 }
 @media screen and (max-width: 405px) {
   .about-us__item {
-    max-width: 125px;
+    margin: 10px 5%;
   }
 }
 .about-us__name {
-  font-family: "MontserratBold";
+  font-family: "MontserratExtraBold";
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 @media screen and (max-width: 576px) {
   .about-us__name {
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 900;
   }
 }
 .about-us__text {
@@ -1039,16 +1029,16 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 576px) {
   .about-us__text {
-    font-size: 6px;
-    line-height: 9px;
-    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
   }
 }
 @media screen and (max-width: 576px) {
   .about-us__image {
-    width: 107px;
-    height: 107px;
-    margin: 0 auto;
+    width: 166px;
+    height: 166px;
+    margin: 10px auto 0;
   }
 }
 .about-us__image img {
@@ -1058,8 +1048,8 @@ body.overflow-hidden {
   .about-us__image img {
     width: 100%;
     height: 100%;
-    -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.3));
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(75, 145, 255, 0.3));
+            filter: drop-shadow(0px 0px 15px rgba(75, 145, 255, 0.3));
   }
 }
 
@@ -1176,7 +1166,9 @@ body.overflow-hidden {
   height: 214px;
   margin-bottom: 40px;
   padding: 20px;
-  background: var(--background);
+  background: -webkit-gradient(linear, left top, left bottom, from(#2E3643), to(#242C3A));
+  background: -o-linear-gradient(top, #2E3643 0%, #242C3A 100%);
+  background: linear-gradient(180deg, #2E3643 0%, #242C3A 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1206,6 +1198,9 @@ body.overflow-hidden {
     max-width: calc(50% - 5px);
     height: 146px;
     margin-bottom: 10px;
+    background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
+    background: -o-linear-gradient(right, #2671E7, #3984fd);
+    background: linear-gradient(270deg, #2671E7, #3984fd);
   }
 }
 @media screen and (max-width: 768px) {
@@ -1235,10 +1230,8 @@ body.overflow-hidden {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.9;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2E3643), to(#242C3A));
-  background: -o-linear-gradient(top, #2E3643 0%, #242C3A 100%);
-  background: linear-gradient(180deg, #2E3643 0%, #242C3A 100%);
+  opacity: 0.1;
+  background: var(--background);
   -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
 }
@@ -1324,7 +1317,7 @@ body.overflow-hidden {
 .services__text {
   font-size: 11px;
   line-height: 13px;
-  font-weight: 600;
+  font-weight: 500;
   display: none;
   margin-bottom: 10px;
 }
@@ -1339,7 +1332,15 @@ body.overflow-hidden {
   background: -webkit-gradient(linear, right top, left top, from(#2671E7), to(#3984fd));
   background: -o-linear-gradient(right, #2671E7, #3984fd);
   background: linear-gradient(270deg, #2671E7, #3984fd);
-  padding: 6px 12px;
+  padding: 6px 14px;
+}
+@media screen and (max-width: 768px) {
+  .services__button .icon {
+    background: #fff;
+  }
+  .services__button .icon svg path {
+    fill: #2671E7;
+  }
 }
 .services__button p {
   visibility: hidden;
@@ -1350,6 +1351,8 @@ body.overflow-hidden {
 }
 @media screen and (max-width: 768px) {
   .services__button p {
+    visibility: visible;
+    color: #fff;
     font-size: 10px;
     line-height: 12px;
     font-weight: 600;
