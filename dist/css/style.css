@@ -1378,7 +1378,7 @@ body.overflow-hidden {
   }
 }
 .services .drop-modal {
-  padding: 85px 0;
+  padding: 65px 0;
   position: fixed;
   z-index: 4;
   top: 0;
@@ -1407,6 +1407,11 @@ body.overflow-hidden {
   height: 30px;
   background: transparent;
   border: none;
+}
+@media screen and (max-width: 992px) {
+  .services .drop-modal .close {
+    right: 85px;
+  }
 }
 .services .drop-modal.show {
   -webkit-transform: translateY(0%);
@@ -1445,7 +1450,15 @@ body.overflow-hidden {
   font-size: 56px;
   line-height: 66px;
   font-weight: 700;
+  padding-right: 120px;
   margin-bottom: 50px;
+}
+@media screen and (max-width: 992px) {
+  .services .drop-modal .modal__title {
+    font-size: 42px;
+    line-height: 46px;
+    font-weight: 700;
+  }
 }
 .services .drop-modal .modal__text {
   font-family: "Montserrat";
@@ -1453,6 +1466,13 @@ body.overflow-hidden {
   line-height: 35px;
   font-weight: 600;
   margin-bottom: 80px;
+}
+@media screen and (max-width: 992px) {
+  .services .drop-modal .modal__text {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+  }
 }
 .services .drop-modal .form {
   position: relative;
@@ -1472,6 +1492,14 @@ body.overflow-hidden {
   font-weight: 600;
   margin-bottom: 30px;
 }
+@media screen and (max-width: 1200px) {
+  .services .drop-modal .form__items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .services .drop-modal .form input {
   color: #fff;
   width: 100%;
@@ -1483,6 +1511,7 @@ body.overflow-hidden {
   border: 3px solid #fff;
   background: transparent;
   margin-right: 19px;
+  margin-bottom: 10px;
 }
 .services .drop-modal .form input::-webkit-input-placeholder {
   color: #fff;
@@ -2305,7 +2334,7 @@ body.overflow-hidden {
   }
 }
 .all-news__items {
-  background: url(../images/news_bg/government.webp);
+  background: url(../images/government.webp);
   background-size: cover;
   width: 100%;
   max-width: 386px;
@@ -2466,7 +2495,7 @@ body.overflow-hidden {
 
 .new__top-bg {
   position: relative;
-  background-image: url(../images/news_bg/office-president.webp);
+  background-image: url(../images/office.webp);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

@@ -45,11 +45,24 @@ if (screenWidth > 768) {
 let body = document.querySelector('body');
 let hamburger = document.querySelector('.header__burger');
 let mobileMenu = document.querySelector('.header__nav_mobile');
+
 hamburger.addEventListener('click', function(){
   mobileMenu.classList.toggle('hidden');
   header.classList.toggle('darker')
   body.classList.toggle('overflow-hidden')
 });
+
+let mobileNavItems = document.querySelectorAll('.header__nav_mobile-link');
+// if(mobileNavItems.length) {
+  for(let i = 0; i < mobileNavItems.length; i++) {
+    mobileNavItems[i].addEventListener('click', function(){
+      console.log(this);
+      mobileMenu.classList.add('hidden');
+      header.classList.remove('darker');
+      body.classList.remove('overflow-hidden');
+    });
+  }
+// }
 
 // change button in services
 if (document.getElementsByClassName('services').length) {
@@ -159,7 +172,8 @@ if (document.getElementsByClassName('services').length) {
 
           modalTitle.innerHTML = nodeTitle.innerHTML;
           modalText.innerHTML = nodeText.innerHTML;
-
+          console.log(nodeTitle)
+          console.log(nodeText)
           modal.prepend(modalInner);
 
 
