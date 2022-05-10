@@ -1,0 +1,51 @@
+// CONTAINER SETTINGS
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  
+  @media (max-width: 1400px) {
+    padding: 0 20px;
+    max-width: 1200px;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 20px;
+    max-width: 960px;
+  }
+  @media (max-width: 992px) {
+    padding: 0 35px;
+    max-width: 720px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    max-width: 540px;
+  }
+  @media (max-width: 576px) {
+    padding: 0 15px;
+  }
+}
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.space-between {
+  justify-content: space-between;
+}
+.space-around {
+  justify-content: space-around;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.align-center {
+  align-items: center;
+}
+.column {
+  flex-direction: column;
+}
+.wrap {
+  flex-wrap: wrap;
+}

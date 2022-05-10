@@ -1,0 +1,1651 @@
+@import 'func';
+
+// @font-face {
+//   font-family: 'PlayFairDayBlack';
+//   src: url('../fonts/PlayfairDisplay-Black.ttf');
+//   font-weight: normal;
+// }
+@font-face {
+  font-family: 'PlayFairDisplayBold';
+  src: url('../fonts/PlayfairDisplay-Bold.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/MONTSERRAT-REGULAR.TTF');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('../fonts/MONTSERRAT-BOLD.TTF');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'MontserratExtraBold';
+  src: url('../fonts/MONTSERRAT-EXTRABOLD.TTF');
+  font-weight: normal;
+}
+
+$Montserrat: 'Montserrat';
+$MontserratBold: 'MontserratBold';
+$PlayFairBold: 'PlayFairDisplayBold';
+$MontserratExtraBold: 'MontserratExtraBold';
+
+// GENERAL
+html {
+  scroll-behavior: smooth;
+}
+body {
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+.phone-number {
+  font-family: $Montserrat;
+  @include font(16, 20, 600);
+  padding: 15px 20px;
+  width: fit-content;
+  text-align: right;
+  // margin-left: auto;
+  background: (linear-gradient(90deg, #2671E7, #4B91FF));
+  &.header__phone-number {
+    @media screen and (max-width: 992px) {
+      @include font(12, 20, 600);
+      padding: 10px 10px;
+      white-space: nowrap;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// HEADS
+.h1 {
+  padding-top: 85px;
+  color: #fff;
+  font-family: $PlayFairBold;
+  text-transform: uppercase;
+  @include font (44, 52, 700);
+  letter-spacing: 0.02em;
+  width: 800px;
+  @media screen and (max-width: 1200px) {
+    @include font (38, 42, 700);
+    max-width: 710px;
+    width: 100%;
+ }
+  @media screen and (max-width: 992px) {
+    @include font (28, 42, 700);
+    max-width: 450px;
+    width: 100%;
+ }
+  @media screen and (max-width: 768px) {
+    @include font (24, 30, 700);
+    max-width: 400px;
+    width: 100%;
+    padding-top: 25px;
+  }
+  @media screen and (max-width: 576px) {
+    @include font (19, 25, 700);
+  }
+}
+.h2 {
+  font-family: $PlayFairBold;
+  @include font (56, 66, 700);
+  letter-spacing: 0.02em;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    @include font (24, 30, 700);
+  }
+  &.about-us__title,
+  &.feedback__title,
+  &.news__title,
+  &.contacts__title {
+    color: #2671E7;
+  }
+  &.services__head,
+  &.payments__title,
+  &.alarm__title,
+  &.all-news__title {
+    color: #fff;
+    text-align: left;
+  }
+}
+
+// INDIVIDUAL
+
+// INDEX
+.header {
+  font-family: $Montserrat;
+  width: 100%;
+  padding: 13px 0;
+  position: fixed;
+  z-index: 4;
+  color: #fff;
+  &__logo {
+    @media screen and (max-width: 992px) {
+      img {
+        width: 120px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        width: 95px;
+      }
+    }
+  }
+  &__nav {
+    max-width: 540px;
+    width: 100%;
+    padding: 0 10px;
+    @include font(14, 17, 500);
+    &_mobile {
+      position: absolute;
+      transform: translateX(0%);
+      transition: all 250ms;
+      background: #191A1E;
+      padding-top: 20px;
+      top: 64px;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      .phone-number {
+        margin-left: auto;
+      }
+      .social__links_mobile {
+        margin-top: 40px;
+        display: flex;
+        justify-content: flex-end;
+        a {
+          margin-left: 25px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        display: block;
+      }
+      &.hidden {
+        transform: translateX(100%);
+        // display: none;
+      }
+      &-link {
+        text-align: right;
+        a {
+          @include font (18, 22, 700);
+          text-transform: uppercase;
+          display: block;
+          margin-bottom: 30px;
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  &.dark {
+    background: #1a1b1ffa;
+    transition: 300ms;
+  }
+  &.darker {
+    background: #191A1E;
+  }
+  &__burger {
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+.main {
+  position: relative;
+  background: #191A1E;
+  padding-top: 85px;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: url(../images/main-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+    background: var(--background-img);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    @media screen and (max-width: 768px) {
+      background-position-y: 150px;
+    }
+  }
+  .foundater {
+    float: right;
+    background-image: var(--background-img);
+    background-size: cover;
+    width: 400px;
+    height: 870px;
+    transform: scale(-1, 1);
+    &__title {
+      position: absolute;
+      bottom: 85px;
+      right: 0;
+      width: 350px;
+      @media screen and (max-width: 768px) {
+        width: 240px;
+        bottom: 35px;
+        right: calc(50% -   120px);
+        display: block !important;
+      }
+      @media screen and (max-width: 1200px) {
+        display: none;
+      }
+      p {
+        font-family: $MontserratBold;
+        font-style: italic;
+        @include font (22, 27, 800);
+        text-transform: uppercase;
+        text-align: center;
+        color: #fff;
+        @media screen and (max-width: 768px) {
+          @include font (15, 19, 800);
+        }
+      }
+    }
+  }
+  .to-reverse {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  .advantages {
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      margin-bottom: 130px;
+    }
+    &__item {
+      margin-top: 35px;
+      margin-right: 42px;
+      @media screen and (max-width: 768px) {
+        margin-top: 20px;
+      }
+      .number {
+        &-mobile {
+          display: none;
+        }
+        @media screen and (max-width: 768px) {
+          &-desktop {
+            display: none;
+          }
+          &-mobile {
+            display: block;
+          }
+        }
+      }
+      p {
+        font-family: $MontserratBold;
+        @include font (16, 19, 700);
+        color: #fff;
+        @media screen and (max-width: 768px) {
+          @include font (8, 10, 700);
+        }
+      }
+    }
+  }
+  &__buttons {
+    margin: 52px 0;
+    @media screen and (max-width: 768px) {
+      margin: 20px 0 14px;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      margin-right: 20px;
+      font-family: $PlayFairBold;
+      @include font(18, 21, 700);
+      text-transform: uppercase;
+      padding: 15px 20px;
+      letter-spacing: 0.02em;
+      color: #fff;
+      border: 10px solid;
+      border-image-slice: 1;
+      border-width: 2px;
+      white-space: nowrap;
+      border-image-source: linear-gradient(to left, #2671E7, #4B91FF);
+      @media screen and (max-width: 768px) {
+        @include font(11, 13,700)
+      }
+      &.btn-primary {
+        background: linear-gradient(270deg, #2671E7, #4B91FF);
+        box-shadow: 0px 0px 15px rgba(38, 113, 231, 0.5);
+        @media screen and (max-width: 768px) {
+          margin-bottom: 10px;
+          width: fit-content;
+          padding: 12px 14px;
+        }
+        &:hover {
+          background: transparent;
+        }
+      }
+      &.btn-secondary {
+        @media screen and (max-width: 768px) {
+          width: 140px;
+          padding: 12px 14px;
+        }
+        &:hover {
+          background: linear-gradient(270deg, #2671E7, #4B91FF);
+          box-shadow: 0px 0px 15px rgba(38, 113, 231, 0.5);
+        }
+      }
+    }
+  }
+  .main-news {
+    padding-bottom: 85px;
+    &__item {
+      width: 224px;
+      height: 150px;
+      margin-right: 21px;
+      padding: 13px 25px 0 19px;
+      background: var(--background);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+      font-family: $Montserrat;
+      color: #fff;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__title  {
+      @include font (14, 17, 700);
+      margin-bottom: 8px;
+    }
+    &__text {
+      @include font (10, 14, 500);
+      margin-bottom: 25px;
+    }
+    &__btn {
+      a {
+        @include font (12, 14, 600);
+        margin-right: 6px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 60px;
+  }
+}
+
+.about-us {
+  position: relative;
+  padding: 85px 0;
+  background: #F0F0F0;
+  @media screen and (max-width: 768px) {
+    padding: 35px 0;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/about-us-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.05;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  &__items {
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    @media screen and (max-width: 992px) {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 768px) {
+      text-align: left;
+    }
+  }
+  &__item {
+    max-width: 275px;
+    width: 100%;
+    padding: 20px 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    color: #2671E7;
+    font-family: $Montserrat;
+    @media screen and (max-width: 1300px) {
+      margin: 0 5px;
+    }
+    @media screen and (max-width: 992px) {
+      margin-bottom: 10px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 220px;
+    }
+    @media screen and (max-width: 576px) {
+      max-width: 100%;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+    // @media screen and (max-width: 535px) {
+    //   max-width: 147px;
+    // }
+    @media screen and (max-width: 405px) {
+      margin: 10px 5%;
+    }
+  }
+  &__name {
+    font-family: $MontserratExtraBold;
+    @include font (20, 24, 700);
+    margin-bottom: 10px;
+    @media screen and (max-width: 576px) {
+      @include font (16, 20, 900);
+    }
+  }
+  &__text {
+    @include font (12, 15, 500);
+    @media screen and (max-width: 576px) {
+      @include font (14, 17, 500);
+    }
+  }
+  &__image {
+    @media screen and (max-width: 576px) {
+      width: 166px;
+      height: 166px;
+      margin: 10px auto 0;
+    }
+    img {
+      height: 210px;
+      @media screen and (max-width: 1200px) {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0px 0px 15px rgba(75, 145, 255, 0.3));
+      }
+    }
+  }
+}
+
+.services {
+  background: #191A1E;
+  padding: 85px 0;
+  color: #fff;
+  @media screen and (max-width: 768px) {
+    padding: 35px 0;
+  }
+  &__head.h2 {
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  .container-serv {
+    position: relative;
+    z-index: 2;
+  }
+  &__top {
+    margin-top: 20px;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      flex-direction: column;
+    }
+  }
+  &__main-text {
+    width: 100%;
+    max-width: 500px;
+    font-family: $Montserrat;
+    @include font (20, 24, 500);
+    @media screen and (max-width: 768px) {
+      @include font (12, 14, 500);
+      margin-bottom: 17px;
+    }
+  }
+  &__change-button {
+    padding: 15px 20px;
+    font-family: $PlayFairBold;
+    @include font (18, 21, 700);
+    cursor: pointer;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #2671E7, #4B91FF);
+    &.active {
+      background: linear-gradient(270deg, #2671E7, #3984fd);
+      box-shadow: 0px 0px 15px rgba(38, 113, 231, 0.5);
+    }
+    @media screen and (max-width: 768px) {
+      @include font (12, 14, 500);
+      padding: 10px;
+    }
+  }
+
+  &__items {
+    position: relative;
+    margin-top: 40px;
+    justify-content: space-between;
+    @media screen and (max-width: 1200px) {
+      justify-content: space-between;
+    }
+    @media screen and (max-width: 768px) {
+      margin-top: 28px;
+    }
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      z-index: 0;
+    }
+  }
+  &__item {
+    cursor: pointer;
+    position: relative;
+    max-width: 32%;
+    flex-grow: 1;
+    order: 2;
+    width: 100%;
+    height: 214px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: linear-gradient(180deg, #2E3643 0%, #242C3A 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: $Montserrat;
+    transition: ease-in-out 300ms;
+    
+    @media screen and (max-width: 1200px) {
+      max-width: calc(50% - 20px);
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      background: var(--background);
+      // pointer-events: none;
+      // background: linear-gradient(270deg, #2671E7, #3984fd);
+      padding: 20px 15px 10px;
+      max-width: 100%;
+      height: 147px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+    @media screen and (max-width: 450px) {
+      margin-right: unset;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      background: var(--background);
+      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+      @media screen and (max-width: 768px) {
+        background: linear-gradient(270deg, #2671E7, #3984fd);
+        margin-right: unset;
+        opacity: 0.9;
+      }
+    }
+    &:hover {
+      @media screen and (min-width: 768px) {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(270deg, #2671E7, #3984fd);
+        .services__button {
+          .icon {
+            background: #fff;
+          }
+          p {
+            visibility: visible;
+          }
+          svg {
+            path {
+              fill: #2671E7;
+            }
+          }
+        }
+      }
+    }
+    &.show {
+      height: fit-content;
+      max-width: 100%;
+      transition: ease-in-out 250ms;
+      .services__text {
+        position: relative;
+        display: block;
+        transition: all 250ms;
+        z-index: 2;
+      }
+      .icon {
+        transform: rotate(180deg);
+      }
+      .btn-less {
+        display: block;
+      }
+      .btn-more {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    @include font (24, 29, 600);
+    @media screen and (max-width: 768px) {
+      @include font (14, 17, 600);
+      margin-bottom: 10px;
+    }
+    &--large {
+      @include font (24, 29, 600);
+      position: relative;
+      z-index: 2;
+      @media screen and (max-width: 768px) {
+        @include font (14, 17, 600);
+        margin-bottom: 10px;
+      }
+      p.mobile {
+        display: none;
+      }
+      @media screen and (max-width: 768px) {
+        p.desktop {
+          display: none;
+        }
+        p.mobile {
+          display: block;
+        }
+      }
+    }
+  }
+  &__text {
+    @include font (11, 13, 500);
+    display: none;
+    margin-bottom: 10px;
+  }
+  &__button {
+    .icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(270deg, #2671E7, #3984fd);
+      padding: 5px 12px 5px 13px;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        background: #fff;
+        svg {
+          path {
+            fill: #2671E7;
+          }
+        }
+      }
+    }
+    .btn-less {
+      display: none;
+    }
+    position: relative;
+    z-index: 2;
+    p {
+      visibility: hidden;
+      margin-left: 15px;
+      @include font (14, 17, 600);
+      @media screen and (max-width: 768px) {
+        visibility: visible;
+        color: #fff;
+        @include font (10, 12, 600);
+      }
+    }
+  }
+  .drop-modal {
+    padding: 65px 0;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    transform: translateY(-100%);
+    transition: ease-in-out 1000ms;
+    background: linear-gradient(270deg, #2671E7, #3984fd);
+    .modal-inner {
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      z-index: 3;
+      top: 85px;
+      right: 120px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      @media screen and (max-width: 992px) {
+        right: 85px;
+      }
+    }
+    &.show {
+      transform: translateY(0%);
+      transition: ease-in-out 1000ms;
+      z-index: 4;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.1;
+        background: var(--background);
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    .modal {
+      color: #fff;
+      &__title {
+        font-family: $PlayFairBold;
+        @include font (56, 66, 700);
+        padding-right: 120px;
+        margin-bottom: 50px;
+        @media screen and (max-width: 992px) {
+          @include font (42, 46, 700);
+
+        }
+      }
+      &__text {
+        font-family: $Montserrat;
+        @include font (20, 35, 600);
+        margin-bottom: 80px;
+        @media screen and (max-width: 992px) {
+          @include font (20, 26, 600);
+        }
+      }
+    }
+    .form {
+      position: relative;
+      z-index: 3;
+      &__title{
+        font-family: $PlayFairBold;
+        @include font (35, 41, 600);
+        margin-bottom: 10px;
+      }
+      &__text{
+        font-family: $Montserrat;
+        @include font (20, 25, 600);
+        margin-bottom: 30px;
+      }
+      &__items {
+        @media screen and (max-width: 1200px) {
+          flex-direction: column;
+        }
+      }
+      input {
+        color: #fff;
+        width: 100%;
+        max-width: 384px;
+        padding: 20px;
+        @include font (16, 20, 600);
+        border: 3px solid #fff;
+        background: transparent;
+        margin-right: 19px;
+        margin-bottom: 10px;
+        &::placeholder {
+          color: #fff;
+        }
+      }
+      button {
+        cursor: pointer;
+        font-family: $Montserrat;
+        width: 100%;
+        @include font (18, 22, 600);
+        border: 3px solid #fff;
+        max-width: 384px;
+        background: #fff;
+        color: #4B91FF;
+        padding: 20px 100px;
+      }
+    }
+  }
+}
+
+.feedback {
+  position: relative;
+  padding: 85px 0;
+  background: #F0F0F0;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/feedback-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  &__title.h2 {
+    text-align: left;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  &__text {
+    margin: 10px 0 30px;
+    color: #191A1E;
+    font-family: $Montserrat;
+    @include font (20, 24, 500);
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      @include font (14, 17, 500);
+      padding: 0 20px;
+    }
+  }
+  &__form {
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      input {
+        margin-bottom: 10px;
+      }
+    }
+    input,
+    button {
+      width: 100%;
+      max-width: 387px;
+      height: 60px;
+    }
+    input {
+      margin-right: 10px;
+      padding-left: 20px;
+      font-family: $Montserrat;
+      @include font (16, 20, 600);
+      color: #2671E7;
+      background: transparent;
+      border-image-slice: 1;
+      border-width: 3px;
+      border-image-source: linear-gradient(to left, #2671E7, #4B91FF);
+      &::placeholder {
+        color: #2671E7;
+      }
+      &:focus-visible {
+        border-image-source: linear-gradient(to left, #4B91FF, #2671E7);
+      }
+      &:focus {
+        outline: 0;
+        outline-offset: 0;
+      }
+    }
+    button {
+      font-family: $Montserrat;
+      @include font (18, 22, 700);
+      color: #fff;
+      border: 0px solid;
+      background: linear-gradient(270deg, #2671E7, #4B91FF);
+      box-shadow: 0px 0px 15px rgba(38, 113, 231, 0.5);
+      cursor: pointer;
+      border-image-slice: 1;
+      &:focus-visible {
+        border-width: 3px;
+        border-image-source: linear-gradient(to left, #4B91FF, #2671E7);
+        // border-image-source: linear-gradient(to left, #ffffff, #000000);
+      }
+      &:focus {
+        outline: 0;
+        outline-offset: 0;
+      }
+    }
+  }
+}
+
+.payments {
+  position: relative;
+  padding: 85px 0;
+  background: #191A1E;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/payment-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.05;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 35px 0;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  &__title.h2 {
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  &__items {
+    margin-top: 50px;
+    font-family: $Montserrat;
+    color: #fff;
+    flex-wrap: wrap;
+    @media screen and (max-width: 768px) {
+      margin-top: 20px;
+    }
+  }
+  &__item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    padding: 15px 15px 0 15px;
+    background: linear-gradient(#2E3643, #242C3A);
+  }
+  &__head {
+    font-family: $MontserratBold;
+    @include font (29, 36, 700);
+    margin-bottom: 15px;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      @include font (16, 20, 700);
+    }
+  }
+  &__text {
+    p {
+      @include font(14, 17, 500);
+      margin-bottom: 15px;
+      @media screen and (max-width: 768px) {
+        @include font (12, 15, 700);
+      }
+    }
+  }
+  &__image {
+    margin-bottom: -4px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.news {
+  position: relative;
+  padding: 85px 0;
+  background: #F0F0F0;
+  @media screen and (max-width: 768px) {
+  padding: 35px 0;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/news-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.05;
+  }
+  .container {padding: unset;
+    position: relative;
+    z-index: 2;
+  }
+  .slider {
+    .slick-list {
+      overflow: visible;
+    }
+    .slick-dots {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        margin: 0 5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #2671E7;
+        button {
+          display: none;
+        }
+        &.slick-active {
+          transition: ease-in-out 300ms;
+          border: 3px solid #2671E7;
+        }
+      }
+    }
+    .slider-button {
+      border: none;
+      background-color: transparent;
+      z-index: 2;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__wrapper {
+      padding: 80px 0;
+      margin: 0 10px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      @media screen and (max-width: 768px) {
+        padding: 20px 0;
+      }
+    }
+    &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-image: var(--background-img);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 590px;
+      height: 290px;
+      @media screen and (max-width: 1200px) {
+        height: 350px;
+      }
+    }
+    &__image {
+      @media screen and (max-width: 992px) {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    &__inner {
+      position: absolute;
+      padding: 20px;
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media screen and (max-width: 1200px) {
+        padding: 20px 20px 40px;
+      }
+      @media screen and (max-width: 768px) {
+        padding-bottom: 40px;
+      }
+    }
+    &__title {
+      font-family: $MontserratBold;
+      @include font (23, 28, 700);
+      margin-bottom: 15px;
+    }
+    &__text {
+      font-family: $Montserrat;
+      @include font (11, 13, 500);
+      height: 130px;
+    }
+    &__button {
+      font-family: $Montserrat;
+      p {
+        margin-right: 10px;
+        @include font (11, 13, 500);
+      }
+    }
+    .current {
+      position:relative;
+      z-index: 100;
+      transform:scale(1.2);
+      filter: drop-shadow(0px 0px 25px #00000033);
+      transition: ease-in-out 500ms;
+    }
+  }
+  &__all-news {
+    a {
+      margin: 0 auto;
+      font-family: $PlayFairBold;
+      padding: 15px 20px;
+      @include font(18, 21, 500);
+      color: #fff;
+      text-transform: uppercase;
+      background: linear-gradient(270deg, #2671E7, #4B91FF);
+    }
+  }
+}
+
+.alarm {
+  position: relative;
+  padding: 90px 0;
+  background: #191A1E;
+  @media screen and (max-width: 768px) {
+    @include font (10, 12, 500);
+    padding: 35px 0;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/alarm-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.05;
+  }
+  &__title.h2 {
+    max-width: 570px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 3;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  &__text {
+    font-family: $Montserrat;
+    max-width: 67.5%;
+    color: #fff;
+    @include font (18, 22, 500);
+    p {
+      margin-bottom: 35px;
+    }
+    @media screen and (max-width: 1400px) {
+      max-width: 64%;
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 50%;
+    }
+    @media screen and (max-width: 992px) {
+      max-width: 100%;
+      text-align: right;
+      p:first-child {
+        padding-left: 10px;
+      }
+      p:nth-child(2) {
+        padding-left: 11%;
+      }
+      p:nth-child(3) {
+        padding-left: 17%;
+      }
+      p:last-child {
+        padding-left: 28%;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      @include font (10, 12, 500);
+      p {
+        margin-bottom: 10px;
+      }
+      p:first-child {
+        // padding-left: 11%;
+        padding-left: 30%;
+      }
+      p:nth-child(2) {
+        // padding-left: 14%;
+        padding-left: 25%;
+      }
+      p:nth-child(3) {
+        // padding-left: 17%;
+        padding-left: 35%;
+      }
+      p:last-child {
+        display: none;
+      }
+    }
+    
+
+  }
+  &__brother-is-here {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 520px;
+    z-index: 2;
+    img {
+      width: 100%;
+    }
+    @media screen and (max-width: 992px) {
+      transform: scale(-1, 1);
+      max-width: 320px;
+      left: 0;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 218px;
+      left: -35px;
+      bottom: 0;
+    }
+  }
+  &__call-layer {
+    font-family: $Montserrat;
+    margin-top: 30px;
+    color: #fff;
+    @media screen and (max-width: 992px) {
+      justify-content: flex-end;
+    }
+    @media screen and (max-width: 768px) {
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      margin-top: 20px;
+      .phone-number {
+        @include font(12, 15, 500);
+        margin-bottom: 15px;
+        padding: 10px;
+      }
+    }
+    p {
+      max-width: 142px;
+      margin-left: 28px;
+      @include font(10, 12, 500);
+      opacity: 0.5;
+    }
+  }
+  &__phone-number {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.contacts {
+  padding: 85px 0;
+  background: #F0F0F0;
+  @media screen and (max-width: 768px) {
+    padding: 10px 0 0;
+  }
+  .container {
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  &__title.h2 {
+    text-align: left;
+    margin-bottom: 44px;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+  &__top--mobile {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      .items__phones {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  &__info {
+    max-width: 280px;
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+    }
+
+  }
+  &__map {
+    height: 345px;
+    width: 100%;
+    margin-left: 190px;
+    @media screen and (max-width: 992px) {
+      margin-left: 60px;
+    }
+    @media screen and (max-width: 768px) {
+      margin-left: unset;
+    }
+
+    .gm-svpc,
+    .gm-fullscreen-control,
+    .gm-style-mtc {
+      display: none;
+    }
+  }
+  .items {
+    padding-left: 35px;
+    border-left: 3px solid #191A1E;
+    font-family: $Montserrat;
+    @include font (20, 30, 600);
+    color: #191A1E;
+    @media screen and (max-width: 768px) {
+      @include font (12, 15, 600);
+      padding-left: unset;
+      border-left: unset;
+    }
+    &__address,
+    &__phones {
+      margin-bottom: 20px;
+      @media screen and (max-width: 768px) {
+        a {
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+      a {
+        display: block;
+      }
+    }
+    &__social {
+      @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      a {
+        margin-right: 25px;
+      }
+    }
+  }
+}
+
+.footer {
+  font-family: $Montserrat;
+  background: #F0F0F0;
+  .container {
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  &__logo {
+    padding: 30px 0 25px;
+    @media screen and (max-width: 768px) {
+      padding: 15px 0;
+    }
+
+    p {
+      width: 165px;
+      @include font (12, 14, 400);
+      margin-left: 42px;
+    }
+    @media screen and (max-width: 992px) {
+      img {
+        width: 120px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      p {
+        @include font (7, 9, 400);
+      }
+      svg {
+        width: 95px;
+      }
+    }
+  }
+  &__social {
+    a:not(:first-child) {
+      margin-left: 25px;
+    }
+    @media screen and (max-width: 768px) {
+      a {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__created-by {
+    padding: 14px 0;
+    color: #191A1E;
+    @include font (10, 12, 400);
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+}
+
+// ALL-NEWS
+.all-news {
+  font-family: $Montserrat;
+  background: #191A1E;
+  color: #fff;
+  padding-top: 192px;
+  padding-bottom: 85px;
+  @media screen and (max-width: 768px) {
+    padding-bottom: 35px;
+    padding-top: 95px;
+  }
+  &__wrapper {
+    padding: 40px 0 20px;
+    @media screen and (max-width: 768px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__items {
+    background: url(../images/government.webp);
+    background-size: cover;
+    width: 100%;
+    max-width: 386px;
+    height: 250px;
+    margin: 0 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+    &:nth-of-type(3n-2) {
+      margin-left: 0;
+    }
+    &--wrap-mobile {
+      @media screen and (max-width: 768px) {
+        padding: 20px 0;
+        border-top: 1px solid #fff;
+      }
+    }
+    @media screen and (max-width: 1400px) {
+      max-width: 370px;
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 290px;
+    }
+    @media screen and (max-width: 992px) {
+      &:nth-of-type(2n) {
+        margin: 0 0 20px 10px;
+      }
+      &:nth-of-type(2n-1) {
+        margin: 0 10px 20px 0;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      &:nth-of-type(1n) {
+        margin: 0 0 10px 0;
+      }
+      
+    }
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      height: 200px;
+    }
+    &__title {
+      font-family: $MontserratBold;
+      @include font (29, 36, 700);
+      @media screen and (max-width: 992px) {
+        @include font (20, 25, 700);
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__btn {
+      display: flex;
+      a {
+        margin-right: 8px;
+        @include font (14, 17, 700);
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__date {
+      @include font (12, 14, 400);
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__title--mobile {
+      @include font (18, 22, 700);
+      display: none;
+      @media screen and (max-width: 768px) {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+    &__date--mobile {
+      display: none;
+      @media screen and (max-width: 768px) {
+        @include font (12, 15, 400);
+        display: block;
+      }
+    }
+  }
+  &__more {
+    p {
+      margin: 0 auto 40px;
+      @include font (18, 21, 700);
+      font-family: $PlayFairBold;
+      background: linear-gradient(270deg, #2671E7, #4B91FF);
+      text-transform: uppercase;
+      color: #fff;
+      padding: 15px 20px;
+      width: fit-content;
+      @media screen and (max-width: 768px) {
+        padding: 14px 12px;
+      }
+    }
+  }
+  &__social {
+    a {
+      margin: 0 20px;
+    }
+  }
+  .all-news__title {
+    text-align: center;
+  }
+}
+
+// NEW
+.new {
+  &__top-bg {
+    position: relative;
+    background-image: url(../images/office.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 430px;
+    @media screen and (max-width: 768px) {
+      height: 230px;
+    }
+  }
+  &__social {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 90px;
+    right: 120px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    a {
+      margin-bottom: 20px;
+    }
+  }
+  .item {
+    background: #f0f0f0;
+    padding: 40px 0;
+    font-family: $MontserratBold;
+    @media screen and (max-width: 768px) {
+      padding: 30px 0;
+    }
+    &__title {
+      @include font (64, 78, 700);
+      margin-bottom: 10px;
+      color: #191A1E;
+      @media screen and (max-width: 768px) {
+        @include font (24, 30, 700);
+      }
+    }
+    &__date {
+      font-family: $Montserrat;
+      @include font (18, 24, 500);
+      color: #191A1E;
+      @media screen and (max-width: 768px) {
+        @include font (10, 13, 500);
+      }
+    }
+    &__image {
+      margin: 30px 0 40px;
+      height: 470px;
+      overflow: hidden;
+      @media screen and (max-width: 768px) {
+        height: fit-content;
+        margin: 20px 0;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &__subtitle {
+      @include font (36, 48, 600);
+      margin-bottom: 20px;
+      @media screen and (max-width: 768px) {
+        @include font (16, 21, 600);
+      }
+    }
+    &__text {
+      font-family: $Montserrat;
+      @include font (18, 24, 500);
+      @media screen and (max-width: 768px) {
+        @include font (14, 19, 500);
+      }
+    }
+  }
+}
